@@ -2,25 +2,20 @@ import { Box, Button, Container, Stack } from "@mui/material";
 import { NavLink } from "react-router-dom";
 
 export function HeaderNavbar(){
-    const authMember = true;
+    const authMember = null;
     return (
     <div className="home-navbar">
-        <Container sx={{mt: "55px", height: "642px"}}>
+        <Container className="navbar-container">
             <Stack 
-                sx={{height: "50px"}} 
-                flexDirection={"row"} 
-                justifyContent={"space-between"}
+                className="menu"
             >
                 <Box>
                     <NavLink  to="/">
-                        <img src="/icons/burak.svg" alt="" style={{width: "125px", height: "30px"}}/>
+                        <img src="/icons/burak.svg" alt="" className="brand-logo" />
                     </NavLink>
                 </Box>
                 <Stack
-                    flexDirection={"row"}
-                    justifyContent={"space-between"}
-                    minWidth={"700px"}
-                    alignItems={"center"}
+                    className="links"
                 >
                     <Box className = {"hover-line"}>
                         <NavLink  to="/" activeClassName = {"underline"}>
@@ -52,13 +47,18 @@ export function HeaderNavbar(){
                         </NavLink>
                     </Box>
                     {/* Basket */}
-                    {authMember ? (
+                    {!authMember ? (
                         <Box>
-                            <Button variant="contained" style={{background: "#3776CC", color: "#f8f8ff"}}>
+                            <Button variant="contained" className="login-button">
                                 Login
                             </Button>
                         </Box>
-                    ) : (<img/>)}
+                    ) : (
+                    <img 
+                        className="user-avatar"
+                        src={"/icons/default-user.svg"}
+                        aria-aria-haspopup={"true"}
+                    />)}
                 </Stack>
             </Stack>
             <Stack>
