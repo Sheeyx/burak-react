@@ -23,7 +23,7 @@ export function HeaderNavbar(){
                         </NavLink>
                     </Box>
                     <Box className = {"hover-line"}>
-                        <NavLink  to="/producs" activeClassName = {"underline"}>
+                        <NavLink  to="/products" activeClassName = {"underline"}>
                             Products
                         </NavLink>
                     </Box>

@@ -9,15 +9,15 @@ import { ProductsPage } from "../screens/productsPage";
 import { OrdersPage } from "../screens/ordersPage";
 import { UserPage } from "../screens/userPage";
 import { HeaderNavbar } from "./components/header/HeaderNavbar";
-import { OtherNavbar } from "./components/header/OtherNavbar";
+import OtherNavbar from "./components/header/OtherNavbar";
 import { Footer } from "./components/footer";
 import "../css/App.css";
 import "../css/navbar.css";
+import "../css/footer.css";
 import { HelpPage } from "../screens/helpPage";
 
 function App() {
   const location = useLocation();
-  console.log(location );
   return (  
     <>
       {location.pathname === "/" ? <HeaderNavbar/> : <OtherNavbar/>}
