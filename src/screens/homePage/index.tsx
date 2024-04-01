@@ -5,7 +5,7 @@ import NewDishes from "./NewDishes";
 import Advertisment from "./Advertisement";
 import ActiveUsers from "./ActiveUsers";
 import Events from "./Events";
-import "../../../css/home.css";
+import "../../css/home.css";
 
 export function HomePage(){
   return (
