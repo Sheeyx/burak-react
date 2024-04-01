@@ -25,38 +25,42 @@ export default function NewDishes() {
         <Box className="category-title">Fresh Menu</Box>
         <Stack className="cards-frame">
           <CssVarsProvider>
-            {newDishes.map((ele, index) => {
-              return (
-                <Card className="card" variant="outlined" key={index}>
-                  <CardOverflow>
-                    <div className="product-sale">Normal Size</div>
-                    <AspectRatio ratio="1">
-                      <img src={ele.imagePath} loading="lazy" alt="" />
-                    </AspectRatio>
-                  </CardOverflow>
+          {newDishes.length !== 0 ? (
+                newDishes.map((ele, index) => {
+                  return (
+                    <Card className="card" variant="outlined" key={index}>
+                      <CardOverflow>
+                        <div className="product-sale">Normal Size</div>
+                        <AspectRatio ratio="1">
+                          <img src={ele.imagePath} loading="lazy" alt="" />
+                        </AspectRatio>
+                      </CardOverflow>
 
-                  <CardOverflow variant="soft" className="product-detail">
-                    <Stack className="info">
-                      <Stack flexDirection={"row"}>
-                        <Typography className="title">
-                          {ele.productName}
-                        </Typography>
-                        <Divider width="2" height="24" bg="#d9d9d9" />
-                        <Typography className="price">$12</Typography>
-                      </Stack>
-                      <Stack>
-                        <Typography className="views">
-                          20
-                          <Visibility
-                            sx={{ fontSize: 25, marginLeft: "5px" }}
-                          />
-                        </Typography>
-                      </Stack>
-                    </Stack>
-                  </CardOverflow>
-                </Card>
-              );
-            })}
+                      <CardOverflow variant="soft" className="product-detail">
+                        <Stack className="info">
+                          <Stack flexDirection={"row"}>
+                            <Typography className="title">
+                              {ele.productName}
+                            </Typography>
+                            <Divider width="2" height="24" bg="#d9d9d9" />
+                            <Typography className="price">$12</Typography>
+                          </Stack>
+                          <Stack>
+                            <Typography className="views">
+                              20
+                              <Visibility
+                                sx={{ fontSize: 25, marginLeft: "5px" }}
+                              />
+                            </Typography>
+                          </Stack>
+                        </Stack>
+                      </CardOverflow>
+                    </Card>
+                  );
+                })
+              ) : (
+                <Box className="no-data">New Products are not availabe!</Box>
+              )}
           </CssVarsProvider>
         </Stack>
       </Stack>
