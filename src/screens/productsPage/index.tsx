@@ -4,12 +4,13 @@ import { Container } from "@mui/material";
 import ChosenProduct from "./ChosenProduct";
 import Products from "./Products";
 
+
 export function ProductsPage(){
   const products = useRouteMatch();
   console.log(products);
   
     return (
-      <div>
+      <div className="products-page">
         <Switch>
           <Route path={`${products.path}/:productId`}>
             <ChosenProduct/>

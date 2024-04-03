@@ -1,5 +1,4 @@
 import React from "react";
-
 import "../css/App.css";
 import { Container, Typography, Stack, Box, Button } from "@mui/material";
 import { RippleBadge } from "./MaterialTheme/styled";
@@ -14,6 +13,7 @@ import { Footer } from "./components/footer";
 import "../css/App.css";
 import "../css/navbar.css";
 import "../css/footer.css";
+import "../css/products.css";
 import { HelpPage } from "../screens/helpPage";
 
 function App() {
