@@ -1,9 +1,28 @@
 import { Box, Button, Container, Stack } from "@mui/material";
 import { NavLink } from "react-router-dom";
 import Basket from "./Basket";
+import { useEffect, useState } from "react";
 
 export function HeaderNavbar(){
-    const authMember = true;
+    const authMember = null;
+    const [count, setCount] = useState(0);
+    const [value, setValue] = useState(true);
+
+    useEffect(()=>{
+        console.log("ComponentDidMount"); // Data fetch
+        setCount(count + 1);
+
+        return () => {
+            console.log("componentWillUnmount");
+        };
+    }, [value])
+
+    // Handlers
+
+    const buttonHandler = () => {
+        setCount(count + 1);
+    };
+    
     return (
     <div className="home-navbar">
         <Container className="navbar-container">
@@ -72,13 +91,15 @@ export function HeaderNavbar(){
                         The Choice, not just a choice
                     </Box>
                     <Box className={"service-txt"}>
-                        24 hours service
+                        {count} hours service
                     </Box>
                     <Box className={"signup"}>
                         {!authMember ? (
                             <Button 
                                 variant={"contained"} 
-                                className={"signup-button"}>
+                                className={"signup-button"}
+                                onClick={buttonHandler}
+                                >
                                 SIGN UP
                             </Button>
                         ) : null}
