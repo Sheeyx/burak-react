@@ -11,24 +11,11 @@ class Test extends React.Component {
         year: 1964
       };
     }
-
     changeDetail = () => {
       this.setState({color: "blue", brand: "Tesla", model: "S", year: "2023"});
     }
 
-    componentDidMount() {
-        console.log("componentDidMount");      
-        // runs after first render => fetch data from backend server             
-    }
-
-    componentDidUpdate() {
-        console.log("componentDidUpdate");  
-    }
-
-    componentWillUnmount() {
-        console.log("componentWillUnmount");
-        // runs before component unmount              
-    }
+    
     render() {
       return (
         <div>
