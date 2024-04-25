@@ -1,4 +1,4 @@
-export const serverAPI:string = `${process.env.REST_APP_API_URL}`;
+export const serverAPI:string = `${process.env.REACT_APP_API_URL}`;
 
 export const Messages = {
     error1: "Something went wrong!",
