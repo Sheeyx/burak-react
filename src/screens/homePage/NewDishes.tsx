@@ -40,7 +40,7 @@ export default function NewDishes() {
                   const sizeVolume = product.productCollection === 
                   ProductCollection.DRINK 
                   ? product.productVolume + "l" 
-                  : product.productSize + " SIZE"
+                  : product.productSize + " SIZE";
                   return (
                     <Card className="card" variant="outlined" key={product._id}>
                       <CardOverflow>
