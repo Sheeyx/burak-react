@@ -2,8 +2,18 @@ import { Box, Button, Container, Stack } from "@mui/material";
 import { NavLink } from "react-router-dom";
 import Basket from "./Basket";
 import { useEffect, useState } from "react";
+import { CartItem } from "../../../lib/types/search";
 
-export function HeaderNavbar(){
+interface HeaderNavbarProps {
+    cartItems: CartItem[];
+    onAdd: (item: CartItem) => void;
+    onRemove: (item: CartItem) => void;
+    onDelete: (item: CartItem) => void;
+    onDeleteAll: (item: CartItem) => void;
+  }
+  
+export function HeaderNavbar(props: HeaderNavbarProps){
+    const {cartItems, onAdd, onDelete, onDeleteAll, onRemove} = props;
     const authMember = null;
     const [count, setCount] = useState(0);
     const [value, setValue] = useState(true);
@@ -67,7 +77,7 @@ export function HeaderNavbar(){
                         </NavLink>
                     </Box>
                     {/* Basket */}
-                    <Basket />
+                    <Basket cartItems = {cartItems} onAdd = {onAdd} onRemove = {onRemove} onDelete = {onDelete} onDeleteAll = {onDeleteAll}/>
                     {!authMember ? (
                         <Box>
                             <Button variant="contained" className="login-button">
