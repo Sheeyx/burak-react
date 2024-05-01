@@ -22,36 +22,56 @@ import AuthenticationModal from "./components/auth";
 
 function App() {
   const location = useLocation();
-  const {cartItems, onAdd, onRemove, onDelete, onDeleteAll,} = useBasket();
+  const { cartItems, onAdd, onRemove, onDelete, onDeleteAll } = useBasket();
   const [signupOpen, setSignupOpen] = useState<boolean>(false);
   const [loginOpen, setLoginOpen] = useState<boolean>(false);
 
   /** Handlers **/
 
   const handleSignupClose = () => setSignupOpen(false);
-  const handleLoginClose = () => setSignupOpen(false);
-
-  return (  
+  const handleLoginClose = () => setLoginOpen(false);
+  return (
     <>
-      {location.pathname === "/" ? <HeaderNavbar cartItems={cartItems} onAdd = {onAdd} onRemove = {onRemove} onDelete = {onDelete} onDeleteAll = {onDeleteAll}/> : <OtherNavbar cartItems={cartItems} onAdd = {onAdd} onRemove = {onRemove} onDelete = {onDelete} onDeleteAll = {onDeleteAll}/>}
+      {location.pathname === "/" ? (
+        <HeaderNavbar
+          cartItems={cartItems}
+          onAdd={onAdd}
+          onRemove={onRemove}
+          onDelete={onDelete}
+          onDeleteAll={onDeleteAll}
+          setSignupOpen={setSignupOpen}
+          setLoginOpen={setLoginOpen}
+        />
+      ) : (
+        <OtherNavbar
+          cartItems={cartItems}
+          onAdd={onAdd}
+          onRemove={onRemove}
+          onDelete={onDelete}
+          onDeleteAll={onDeleteAll}
+          setSignupOpen={setSignupOpen}
+          setLoginOpen={setLoginOpen}
+        />
+      )}
       <Switch>
         <Route path="/products">
-          <ProductsPage onAdd = {onAdd} />
+          <ProductsPage onAdd={onAdd} />
         </Route>
         <Route path="/orders">
-          <OrdersPage /> 
+          <OrdersPage />
         </Route>
         <Route path="/member-page">
-          <UserPage /> 
+          <UserPage />
         </Route>
         <Route path="/help">
-          <HelpPage /> 
+          <HelpPage />
         </Route>
         <Route path="/">
           <HomePage />
         </Route>
       </Switch>
-      <Footer/>
+      <Footer />
+
       <AuthenticationModal
         signupOpen={signupOpen}
         loginOpen={loginOpen}
@@ -59,8 +79,8 @@ function App() {
         handleSignupClose={handleSignupClose}
       />
     </>
-      
-  )
+  );
 }
+
 
 export default App;

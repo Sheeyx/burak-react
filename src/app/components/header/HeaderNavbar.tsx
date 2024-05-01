@@ -10,10 +10,20 @@ interface HeaderNavbarProps {
     onRemove: (item: CartItem) => void;
     onDelete: (item: CartItem) => void;
     onDeleteAll: (item: CartItem) => void;
+    setSignupOpen: (isOpen: boolean) => void;
+    setLoginOpen: (isOpen: boolean) => void;
   }
   
 export function HeaderNavbar(props: HeaderNavbarProps){
-    const {cartItems, onAdd, onDelete, onDeleteAll, onRemove} = props;
+    const {
+        cartItems,
+        onAdd,
+        onRemove,
+        onDelete,
+        onDeleteAll,
+        setSignupOpen,
+        setLoginOpen,
+      } = props;    
     const authMember = null;
     const [count, setCount] = useState(0);
     const [value, setValue] = useState(true);
@@ -77,10 +87,21 @@ export function HeaderNavbar(props: HeaderNavbarProps){
                         </NavLink>
                     </Box>
                     {/* Basket */}
-                    <Basket cartItems = {cartItems} onAdd = {onAdd} onRemove = {onRemove} onDelete = {onDelete} onDeleteAll = {onDeleteAll}/>
+                    <Basket 
+                    cartItems = {cartItems} 
+                    onAdd = {onAdd} 
+                    onRemove = {onRemove} 
+                    onDelete = {onDelete} 
+                    onDeleteAll = {onDeleteAll}
+                    
+                    />
                     {!authMember ? (
                         <Box>
-                            <Button variant="contained" className="login-button">
+                            <Button
+                            variant="contained"
+                            className="login-button"
+                            onClick={() => setLoginOpen(true)}
+                            >                                
                                 Login
                             </Button>
                         </Box>
@@ -101,14 +122,14 @@ export function HeaderNavbar(props: HeaderNavbarProps){
                         The Choice, not just a choice
                     </Box>
                     <Box className={"service-txt"}>
-                        {count} hours service
+                        24 hours service
                     </Box>
                     <Box className={"signup"}>
                         {!authMember ? (
                             <Button 
                                 variant={"contained"} 
                                 className={"signup-button"}
-                                onClick={buttonHandler}
+                                onClick={() => setSignupOpen(true)}
                                 >
                                 SIGN UP
                             </Button>
