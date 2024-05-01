@@ -47,7 +47,7 @@ const useBasket = () => {
         localStorage.setItem("cartData", JSON.stringify(cartUpdate));
     } 
 
-    const onDeleteAll = (input: CartItem) => {
+    const onDeleteAll = () => {
         setCartItems([]);
         localStorage.removeItem("cartData");
     } 
