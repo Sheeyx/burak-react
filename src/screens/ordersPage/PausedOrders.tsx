@@ -22,7 +22,8 @@ export default function PausedOrders() {
       <Stack>
       {pausedOrders?.map((order: Order) => {
           return (
-            <Box key={order._id} className={"order-main-box"}>              <Box className={"order-box-scroll"}>
+            <Box key={order._id} className={"order-main-box"}>              
+              <Box className={"order-box-scroll"}>
                 {order?.orderItems?.map((item: OrderItem) => {
                   const product: Product = order.productData.filter(
                     (ele: Product) => (item.productId === ele._id)
